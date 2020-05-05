@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface ContainerProps {
@@ -17,19 +18,41 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      list-style: none;
+      display: flex;
       a {
+        flex: 1;
         color: #fff;
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        opacity: 0.8;
 
-        & + a {
+        /* & + a {
           margin-left: 32px;
-        }
+        } */
 
         &:hover {
           opacity: 0.6;
         }
+      }
+
+      li {
+        margin-left: 32px;
+      }
+
+      .active a {
+        opacity: 1;
+      }
+
+      .active::after {
+        content: '';
+        position: absolute;
+        width: 75px;
+        height: 2px;
+        display: block;
+        top: 69px;
+        background: #ff872c;
       }
     }
   }
